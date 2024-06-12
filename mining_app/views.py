@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Truck, Warehouse
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def truck_list(request):
+    trucks = Truck.objects.all()
+    warehouses = Warehouse.objects.all()
+    context = {
+        "trucks": trucks,
+        "warehouses": warehouses,
+    }
+    return render(request, "mining_app/truck_list.html", context)
