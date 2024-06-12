@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Таблица грузовиков</h1>
+    <form action="." method="POST">{%csrf_token%}
     <table border="1">
         <thead>
             <tr>
@@ -24,15 +25,13 @@
                 <td>{{ truck.model.max_load_capacity }}</td>
                 <td>{{ truck.current_load }}</td>
                 <td>{{ truck.overloading }}</td>
-                <td><input type="text" id="coord"></td>
+                <td><input type='text' name='coords'></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <form method="post" action=".">
-        {% csrf_token %}
-        <button type="submit">Рассчитать</button> 
-    </form> 
+    <input type="submit" value="Рассчитать">
+    </form>
 
     <table border="1">
         <thead>
@@ -49,7 +48,7 @@
                 <td>{{ warehouse.name }}</td>
                 <td>{{ warehouse.current_load }}</td>
                 <td>{{ warehouse.current_load }}</td>
-                <td>{{ warehouse.fe_content }}% SiO2, {{ warehouse.si_content }}% Fe</td>
+                <td>{{ warehouse.fe_content }}% SiO2, {{ warehouse.si_content }}</td>
             </tr>
             {% endfor %}
         </tbody>
