@@ -1,9 +1,12 @@
 from django.db import models
 
-# Самосвал
+# Грузовик
 class TruckModel(models.Model):
     name = models.CharField(max_length=200)
     max_load_capacity = models.FloatField(help_text="Максимальная грузоподъемность в тоннах")
+    
+    def __str__(self):
+        return self.name
 
 class Truck(models.Model):
     number = models.CharField(max_length=200)
@@ -12,6 +15,9 @@ class Truck(models.Model):
     overloading = models.FloatField(help_text="Перегруз в процентах")
     si_content = models.FloatField(help_text="Содержание SiO2 в процентах")
     fe_content = models.FloatField(help_text="Содержание Fe в процентах")
+    
+    def __str__(self):
+        return f"{self.number} ({self.model.name})"
 
 # Склад 
 class Warehouse(models.Model):
@@ -19,3 +25,6 @@ class Warehouse(models.Model):
     si_content = models.FloatField(help_text="Содержание SiO2 в процентах")
     fe_content = models.FloatField(help_text="Содержание Fe в процентах")
     polygon = models.TextField(help_text="WKT-представление полигона")
+    
+    def __str__(self):
+        return f"Warehouse with {self.current_load} tons"
