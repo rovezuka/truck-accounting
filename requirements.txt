@@ -1,0 +1,7 @@
+Django==5.0.6
+psycopg2-binary==2.9.9
+requests==2.32.3
+scipy==1.13.1
+shapely==2.0.4
+turfpy==0.0.7
+gunicorn==22.0.0
