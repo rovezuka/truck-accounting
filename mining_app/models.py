@@ -23,6 +23,7 @@ class Truck(models.Model):
 class Warehouse(models.Model):
     name = models.CharField(max_length=200)
     current_load = models.FloatField(default=0, help_text="Текущая нагрузка в тоннах")
+    overloading = models.FloatField(help_text="Объем после разгрузки в тоннах")
     si_content = models.FloatField(help_text="Содержание SiO2 в процентах")
     fe_content = models.FloatField(help_text="Содержание Fe в процентах")
     polygon = models.TextField(help_text="WKT-представление полигона")

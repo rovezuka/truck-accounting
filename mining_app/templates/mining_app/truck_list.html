@@ -47,8 +47,8 @@
             <tr>
                 <td>{{ warehouse.name }}</td>
                 <td>{{ warehouse.current_load }}</td>
-                <td>{{ warehouse.current_load }}</td>
-                <td>{{ warehouse.fe_content }}% SiO2, {{ warehouse.si_content }}</td>
+                <td>{{ warehouse.overloading }}</td>
+                <td>{{ warehouse.fe_content|floatformat:2 }}% SiO2, {{ warehouse.si_content|floatformat:2 }}</td>
             </tr>
             {% endfor %}
         </tbody>
